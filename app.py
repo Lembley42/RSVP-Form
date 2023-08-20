@@ -53,6 +53,7 @@ def send():
     # Add to Google Sheets
     add_to_google_sheets(contents)
 
+    print('Request completed!')
     return 'Success'
 
 if __name__ == '__main__':
