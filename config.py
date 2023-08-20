@@ -5,10 +5,10 @@ API_KEY = os.environ.get('API_KEY')
 
 
 # Email Settings
-SMPT_HOST = os.environ.get('SMTP_HOST')
-SMPT_PORT = os.environ.get('SMTP_PORT')
-SMPT_USER = os.environ.get('SMTP_USER')
-SMPT_PASSWORD = os.environ.get('SMTP_PASSWORD')
+SMPT_HOST = os.environ.get('SMPT_HOST')
+SMPT_PORT = os.environ.get('SMPT_PORT')
+SMPT_USER = os.environ.get('SMPT_USER')
+SMPT_PASSWORD = os.environ.get('SMPT_PASSWORD')
 
 MAIL_RECEIVER = os.environ.get('MAIL_RECEIVER')
 
