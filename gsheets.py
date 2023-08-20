@@ -5,7 +5,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 def connect_google_sheets() -> gspread.Client:
     print('Connecting to Google Sheets...')
     scope = ['https://www.googleapis.com/auth/spreadsheets']
-    credentials = ServiceAccountCredentials.from_json_keyfile_dict('service-account.json', scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name('service-account.json', scope)
     client = gspread.authorize(credentials)
     print('Connected!')
     return client
