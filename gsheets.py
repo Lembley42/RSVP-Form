@@ -12,7 +12,7 @@ def connect_google_sheets() -> gspread.Client:
 
 
 def add_to_google_sheets(gsheets, contents):
-    sheet = gsheets.open_by_key(TARGET_GOOGLE_SHEETS).get_worksheet(TARGET_GOOGLE_SHEETS_INDEX)
+    sheet = gsheets.open_by_key(TARGET_GOOGLE_SHEETS).get_worksheet(0)
     sheet.append_row(contents)
     return 'Success'
 
