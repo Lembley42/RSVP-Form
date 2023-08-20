@@ -9,7 +9,6 @@ app = Flask(__name__)
 CORS(app)
 
 bp = Blueprint('bp', __name__)
-app.register_blueprint(bp, url_prefix='/')
 
 
 # Before Request
@@ -55,6 +54,10 @@ def send():
 
     print('Request completed!')
     return 'Success'
+
+
+app.register_blueprint(bp, url_prefix='/')
+
 
 if __name__ == '__main__':
     app.run()
