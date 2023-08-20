@@ -37,14 +37,14 @@ def send():
 
     subject = f"RSVP from {name}"
     contents = [
+        f"Acceptance: {acceptance}",
         f"Name: {name}",
         f"Number of adults: {adults}",
         f"Number of children: {children}",
         f"Phone: {phone}",
         f"Email: {email}",
-        f"Acceptance: {acceptance}",
-        f"Recommendations: {recommendations}",
-        f"Guest names: {guest_names}"
+        f"Guest names: {guest_names}",
+        f"Recommendations: {recommendations}"
     ]
 
     # Send email
