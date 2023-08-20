@@ -19,7 +19,7 @@ def before_request():
         return 'Invalid API Key'
 
 
-@bp.route('/api/v1/send')
+@bp.route('/api/v1/send', methods=['POST'])
 def send():
     print('Received request...')
 
