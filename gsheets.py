@@ -1,11 +1,15 @@
 from config import TARGET_GOOGLE_SHEETS, TARGET_GOOGLE_SHEETS_INDEX, SERVICE_ACCOUNT_FILE
-import gspread
+import gspread, json
 from oauth2client.service_account import ServiceAccountCredentials
 
 def connect_google_sheets() -> gspread.Client:
     print('Connecting to Google Sheets...')
     scope = ['https://www.googleapis.com/auth/spreadsheets']
-    credentials = ServiceAccountCredentials.from_json_keyfile_dict(SERVICE_ACCOUNT_FILE, scope)
+
+    with open(SERVICE_ACCOUNT_FILE, 'r') as f:
+        keyfile_dict = json.load(f)
+
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(keyfile_dict, scope)
     client = gspread.authorize(credentials)
     print('Connected!')
     return client
