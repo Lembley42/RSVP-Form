@@ -11,7 +11,7 @@ def connect() -> smtplib.SMTP_SSL:
     return smtp
 
 
-def send(subject: str, body: str, sender: str = SMPT_USER, receiver: str = MAIL_RECEIVER) -> None:
+def send_mail(subject: str, body: str, sender: str = SMPT_USER, receiver: str = MAIL_RECEIVER) -> None:
     print(f'Sending email to {receiver}...')
     msg = EmailMessage()
     msg.set_content(body)
