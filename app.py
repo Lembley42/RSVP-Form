@@ -37,8 +37,8 @@ def send():
 
     subject = f"RSVP from {name}"
     contents = [
-        f"Acceptance: {acceptance}",
         f"Name: {name}",
+        f"Acceptance: {acceptance}",
         f"Number of adults: {adults}",
         f"Number of children: {children}",
         f"Phone: {phone}",
@@ -54,8 +54,18 @@ def send():
     Decrypt_File('service-account.bin', 'service-account.json')
 
     # Add to Google Sheets
+    rows = [
+        acceptance,
+        name,
+        adults,
+        children,
+        phone,
+        email,
+        guest_names,
+        recommendations
+    ]
     gsheets = connect_google_sheets()
-    add_to_google_sheets(gsheets, contents)
+    add_to_google_sheets(gsheets, rows)
 
     print('Request completed!')
     return 'Success'
