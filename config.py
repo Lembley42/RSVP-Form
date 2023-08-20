@@ -3,6 +3,8 @@ import os
 # API KEY
 API_KEY = os.environ.get('API_KEY')
 
+# Encryption
+DECRYPT_KEY = os.environ.get('DECRYPT_KEY')
 
 # Email Settings
 SMPT_HOST = os.environ.get('SMPT_HOST')
@@ -11,7 +13,6 @@ SMPT_USER = os.environ.get('SMPT_USER')
 SMPT_PASSWORD = os.environ.get('SMPT_PASSWORD')
 
 MAIL_RECEIVER = os.environ.get('MAIL_RECEIVER')
-
 
 
 # Google Sheets Settings

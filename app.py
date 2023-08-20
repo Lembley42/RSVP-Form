@@ -4,6 +4,7 @@ from flask_cors import CORS
 from config import API_KEY
 from mail import send_mail, connect_mail
 from gsheets import add_to_google_sheets, connect_google_sheets
+from encryption import Decrypt_File
 
 app = Flask(__name__)
 CORS(app)
@@ -49,6 +50,8 @@ def send():
     # Send email
     smtp = connect_mail()
     send_mail(smtp, subject, '\n'.join(contents))
+
+    Decrypt_File('service-account.bin', 'service-account.json')
 
     # Add to Google Sheets
     gsheets = connect_google_sheets()
