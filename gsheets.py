@@ -11,8 +11,7 @@ def connect_google_sheets() -> gspread.Client:
     return client
 
 
-def add_to_google_sheets(contents):
-    gsheets = connect_google_sheets()
+def add_to_google_sheets(gsheets, contents):
     sheet = gsheets.open_by_key(TARGET_GOOGLE_SHEETS).get_worksheet(TARGET_GOOGLE_SHEETS_INDEX)
     sheet.append_row(contents)
     return 'Success'

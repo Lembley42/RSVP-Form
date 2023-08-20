@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash, Blu
 from flask_cors import CORS
 
 from config import API_KEY
-from mail import send_mail
-from gsheets import add_to_google_sheets
+from mail import send_mail, connect_mail
+from gsheets import add_to_google_sheets, connect_google_sheets
 
 app = Flask(__name__)
 CORS(app)
@@ -47,10 +47,12 @@ def send():
     ]
 
     # Send email
-    send_mail(subject, '\n'.join(contents))
+    smtp = connect_mail()
+    send_mail(smtp, subject, '\n'.join(contents))
 
     # Add to Google Sheets
-    add_to_google_sheets(contents)
+    gsheets = connect_google_sheets()
+    add_to_google_sheets(gsheets, contents)
 
     print('Request completed!')
     return 'Success'
