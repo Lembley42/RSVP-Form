@@ -29,20 +29,17 @@ def send():
     name = data['name']
     adults = data['adults']
     children = data['children']
-    phone = data['phone'] if data['phone'] else 'N/A'
-    email = data['email'] if data['email'] else 'N/A'
     acceptance = 'Yes' if data['acceptance'] else 'No'
     recommendations = data['recommendations'] if data['recommendations'] else 'N/A'
     guest_names = ', '.join(data['guestNames'])
 
+    # Mail contents
     subject = f"RSVP from {name}"
     contents = [
         f"Name: {name}",
         f"Acceptance: {acceptance}",
         f"Number of adults: {adults}",
         f"Number of children: {children}",
-        f"Phone: {phone}",
-        f"Email: {email}",
         f"Guest names: {guest_names}",
         f"Recommendations: {recommendations}"
     ]
@@ -59,8 +56,6 @@ def send():
         name,
         adults,
         children,
-        phone,
-        email,
         guest_names,
         recommendations
     ]
